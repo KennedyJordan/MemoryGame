@@ -1,1 +1,4 @@
 C:\Users\jorda\Documents\GitHub\MemoryGame\MemoryGame\MemoryGame\bin\Debug\MemoryGame.exe.config
+C:\Users\jorda\Documents\GitHub\MemoryGame\MemoryGame\MemoryGame\obj\Debug\MemoryGame.csprojResolveAssemblyReference.cache
+C:\Users\jorda\Documents\GitHub\MemoryGame\MemoryGame\MemoryGame\obj\Debug\MemoryGame.Form1.resources
+C:\Users\jorda\Documents\GitHub\MemoryGame\MemoryGame\MemoryGame\obj\Debug\MemoryGame.csproj.GenerateResource.Cache
