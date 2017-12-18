@@ -10,19 +10,68 @@ using System.Windows.Forms;
 
 namespace MemoryGame
 {
-    public partial class Form1 : Form
+    public partial class Form1: Form
     {
         Random random = new Random();
 
+        //Setting up the images for clicking
         List<string> icons = new List<string>()
         {
             "!","!","N","N",",",",","k","k",
             "b","b","w","w","v","v","z","z"
         };
 
+        //Storing the Information on Clicks
+        Label firstClick, secondClick;
+
         public Form1()
         {
             InitializeComponent();
+            AssignIconsToSquares();
+        }
+
+        private void label_click(object sender, EventArgs e)
+        {
+            Label clickedLabel = sender as Label;
+
+            if (clickedLabel == null)
+                return;
+
+            if (clickedLabel.ForeColor == Color.Black)
+                return;
+
+            if(firstClick == null)
+            {
+                firstClick = clickedLabel;
+                firstClick.ForeColor = Color.Black;
+                return;
+            }
+
+            secondClick = clickedLabel;
+            secondClick.ForeColor = Color.Black;
+
+
+        }
+
+        //Attaching Images to Individual Squares
+        private void AssignIconsToSquares()
+        {
+            Label label;
+            int randomNumber;
+
+            for(int i = 0; i < tableLayoutPanel1.Controls.Count; i++)
+            {
+                if (tableLayoutPanel1.Controls[i] is Label)
+                    label = (Label)tableLayoutPanel1.Controls[i];
+
+                else
+                    continue;
+
+                randomNumber = random.Next(0, icons.Count);
+                label.Text = icons[randomNumber];
+
+                icons.RemoveAt(randomNumber);
+            }
         }
     }
 }
