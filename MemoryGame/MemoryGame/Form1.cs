@@ -32,6 +32,9 @@ namespace MemoryGame
 
         private void label_click(object sender, EventArgs e)
         {
+            if (firstClick != null && secondClick != null)
+                return;
+
             Label clickedLabel = sender as Label;
 
             if (clickedLabel == null)
@@ -50,7 +53,43 @@ namespace MemoryGame
             secondClick = clickedLabel;
             secondClick.ForeColor = Color.Black;
 
+            CheckForWin();
 
+            if(firstClick.Text == secondClick.Text)
+            {
+                firstClick = null;
+                secondClick = null;
+            }
+            else
+                timer1.Start();
+
+        }
+
+        private void CheckForWin()
+        {
+            Label label;
+            for (int i = 0; i < tableLayoutPanel1.Controls.Count; i++)
+            {
+                label = tableLayoutPanel1.Controls[i] as Label;
+
+                if (label != null && label.ForeColor == label.BackColor)
+                    return;
+            }
+
+            MessageBox.Show("Congratz You Win The Game!");
+            Close();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            timer1.Stop();
+
+            firstClick.ForeColor = firstClick.BackColor;
+            secondClick.ForeColor = secondClick.BackColor;
+
+            firstClick = null;
+            secondClick = null;
+         
         }
 
         //Attaching Images to Individual Squares
