@@ -12,17 +12,19 @@ namespace MemoryGame
 {
     public partial class Form1: Form
     {
-        Random random = new Random();
+        static void Main(string[] args)
+        { }
+            Random random = new Random();
 
-        //Setting up the images for clicking
-        List<string> icons = new List<string>()
+            //Setting up the images for clicking
+            List<string> icons = new List<string>()
         {
             "!","!","N","N",",",",","k","k",
             "b","b","w","w","v","v","z","z"
         };
-
-        //Storing the Information on Clicks
-        Label firstClick, secondClick;
+            //Storing the Information on Clicks
+            Label firstClick, secondClick;
+        
 
         public Form1()
         {
@@ -98,7 +100,7 @@ namespace MemoryGame
             Label label;
             int randomNumber;
 
-            for(int i = 0; i < tableLayoutPanel1.Controls.Count; i++)
+            for (int i = 0; i < tableLayoutPanel1.Controls.Count; i++)
             {
                 if (tableLayoutPanel1.Controls[i] is Label)
                     label = (Label)tableLayoutPanel1.Controls[i];
